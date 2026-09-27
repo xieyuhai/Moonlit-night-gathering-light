@@ -1,9 +1,3 @@
-# 小游戏工程
-
-3D 新作《云端拾星》位于 [云端拾星/](云端拾星/README.md)，包含 LayaAir 3.4 工程、Web 预览包及画面截图。
-
-《棱镜回路》位于 [棱镜回路/](棱镜回路/README.md)，独立于下方的《月夜拾光》工程。
-
 # 月夜拾光
 
 基于 LayaAir 3.4 的竖屏休闲小游戏。玩家操控光灵，在月夜花园里收集萤火、躲开暗荆，坚持 60 秒并刷新最高分。画面全部由引擎绘制，无外部素材、账号或网络请求。
@@ -18,7 +12,7 @@
 
 ## 运行与构建
 
-工程入口为 [`月夜拾光.laya`](月夜拾光.laya)，可用 LayaAir IDE 3.4 打开。官方 CLI 构建 Web 版：
+在本项目目录中，以 [`月夜拾光.laya`](月夜拾光.laya) 为工程入口，可用 LayaAir IDE 3.4 打开。官方 CLI 构建 Web 版：
 
 ```bash
 ./scripts/build.sh
@@ -31,21 +25,19 @@
 
 规则检查：`node scripts/check-rules.cjs`；若 `tsc` 不在 PATH 中，可设置 `TSC_BIN`。
 
-## Cloudflare Pages 自动发布
+## Cloudflare Pages 发布
 
-本工程可用 Cloudflare Pages 的 Git 集成持续发布 Web 版。每次向连接的 GitHub/GitLab 仓库推送代码，Pages 会自动执行构建并更新站点。当前工程尚未配置 Git 远端，需先把工程推送到自己的仓库；务必将 `月夜拾光-Web/libs/` 一并纳入版本控制，它是无 LayaAir IDE 的云端构建环境所需的引擎运行库。`release/` 和 `node_modules/` 不需要提交。
+公开地址：[moonlit-night-gathering-light.pages.dev](https://moonlit-night-gathering-light.pages.dev/)；源码仓库：[Moonlit-night-gathering-light](https://github.com/xieyuhai/Moonlit-night-gathering-light)。生产项目名为 `moonlit-night-gathering-light`。
 
-在 Cloudflare 控制台进入 **Workers & Pages → Create → Pages → Connect to Git**，选中仓库后填写：
+当前使用 Wrangler 直接上传构建产物。修改源码后，在本机已登录 Cloudflare 的环境中执行：
 
-| 配置项 | 值 |
-| --- | --- |
-| Framework preset | None |
-| Root directory | 仓库根目录 |
-| Build command | `npm ci && npm run build:pages` |
-| Build output directory | `release/web` |
-| Production branch | 仓库主分支（例如 `main`） |
+```bash
+bash scripts/deploy-cloudflare.sh
+```
 
-首次部署完成后会得到 `*.pages.dev` 地址。后续修改 `src/` 并推送即可触发构建；其他分支可生成预览部署。构建脚本先复制已纳入版本控制的 LayaAir Web 运行库，再用锁定版本的 TypeScript 编译最新源码，并执行玩法规则检查。Cloudflare Pages 仅托管 Web 版；微信小游戏仍需由 LayaAir IDE 单独导出。
+脚本安装锁定依赖、构建并检查玩法规则，然后更新生产站点。`release/` 和 `node_modules/` 不需要提交；`月夜拾光-Web/libs/` 是无 LayaAir IDE 环境构建所需的引擎运行库，需要保留在源码仓库。
+
+当前站点未连接 GitHub，推送代码不会自动触发 Cloudflare 部署。Cloudflare 的 GitHub OAuth 连接需要单独授权；直接上传项目也不能原地改为 Git 集成，若以后需要推送即部署，可为此仓库新建 Git 集成 Pages 项目，或为当前项目配置使用专用 Cloudflare API Token 的 CI。Cloudflare Pages 仅托管 Web 版；微信小游戏仍需由 LayaAir IDE 单独导出。
 
 ## 商业化预留
 
