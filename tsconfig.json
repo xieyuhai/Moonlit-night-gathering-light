@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "target": "es6",
+    "lib": ["es2018", "dom"],
+    "strict": true,
+    "strictNullChecks": false,
+    "noEmitHelpers": true,
+    "sourceMap": false,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "types": [],
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "~/packages/*": [
+        "./library/packages/*"
+      ]
+    }
+  },
+  "include": [
+    "./assets",
+    "./src",
+    "./engine"
+  ]
+}

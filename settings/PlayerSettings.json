@@ -1,0 +1,18 @@
+{
+    "modules": {
+        "laya.ui": true,
+        "laya.d3": false
+    },
+    "addons": {
+        "laya.ui": "ui2"
+    },
+    "resolution": {
+        "designWidth": 720,
+        "designHeight": 1280,
+        "scaleMode": "showall",
+        "alignV": "middle",
+        "alignH": "center",
+        "backgroundColor": "#071c28"
+    },
+    "splash": { "enabled": false }
+}

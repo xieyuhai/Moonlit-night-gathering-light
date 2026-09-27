@@ -1,0 +1,12 @@
+{
+  "name": "moonlit-garden-layaair",
+  "private": true,
+  "version": "1.1.1",
+  "scripts": {
+    "build:pages": "bash scripts/build-cloudflare.sh",
+    "check": "node scripts/check-rules.cjs"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}

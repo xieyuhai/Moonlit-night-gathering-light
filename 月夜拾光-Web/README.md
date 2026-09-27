@@ -1,3 +1,9 @@
+# 小游戏工程
+
+3D 新作《云端拾星》位于 [云端拾星/](云端拾星/README.md)，包含 LayaAir 3.4 工程、Web 预览包及画面截图。
+
+《棱镜回路》位于 [棱镜回路/](棱镜回路/README.md)，独立于下方的《月夜拾光》工程。
+
 # 月夜拾光
 
 基于 LayaAir 3.4 的竖屏休闲小游戏。玩家操控光灵，在月夜花园里收集萤火、躲开暗荆，坚持 60 秒并刷新最高分。画面全部由引擎绘制，无外部素材、账号或网络请求。
@@ -12,7 +18,7 @@
 
 ## 运行与构建
 
-在本项目目录中，以 [`月夜拾光.laya`](月夜拾光.laya) 为工程入口，可用 LayaAir IDE 3.4 打开。官方 CLI 构建 Web 版：
+工程入口为 [`月夜拾光.laya`](月夜拾光.laya)，可用 LayaAir IDE 3.4 打开。官方 CLI 构建 Web 版：
 
 ```bash
 ./scripts/build.sh
@@ -34,7 +40,7 @@
 | 配置项 | 值 |
 | --- | --- |
 | Framework preset | None |
-| Root directory | `月夜拾光` |
+| Root directory | 仓库根目录 |
 | Build command | `npm ci && npm run build:pages` |
 | Build output directory | `release/web` |
 | Production branch | 仓库主分支（例如 `main`） |
